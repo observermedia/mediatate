@@ -43,3 +43,5 @@ Using Javascript, demonstrate the ability to do the following:
 
 Once you've completed the Phases, please push to your repository.  Add a file answers.txt that provides the written responses to any questions above.
 
+Deploy your results to Github Pages and let's review it together!
+
