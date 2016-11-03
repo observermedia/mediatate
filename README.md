@@ -11,9 +11,7 @@ Please fork our repository to your personal Github account.
 There are two images that are identical, though they are identified to the DOM with separate ids.
 
 1. What is the difference between these two images?
-
 2. What are the implications for how these images load?
-
 3. What can be done to make these images load correctly with a version number?
 
 ## Phase II
