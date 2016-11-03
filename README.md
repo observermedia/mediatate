@@ -8,11 +8,13 @@ Please fork our repository to your personal Github account.
 
 ## Phase II
 
-There are two images that are identical, though they are identified to the DOM with separate ids.  What is the difference between these two images?
+There are two images that are identical, though they are identified to the DOM with separate ids.
 
-What are the implications for how these images load?
+1. What is the difference between these two images?
 
-What can be done to make sure image-2 loads correctly with a version?
+2. What are the implications for how these images load?
+
+3. What can be done to make these images load correctly with a version number?
 
 ## Phase II
 
