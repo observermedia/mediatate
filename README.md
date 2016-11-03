@@ -21,22 +21,25 @@ There are two images that are identical, though they are identified to the DOM w
 This page makes a good candidate for using the Bootstrap framework.  Please do the following:
 
 1. Load the Bootstrap framework
-2. Theme the page using Bootstrap
+2. Theme the page using Bootstrap following this <a href="design-guide.png">visual design guide</a>
 3. Ensure the page renders "responsively", for Desktop and Mobile
 
 ## Phase III
 
-1. Make a slideshow out of the images.
+1. Using the inline CSS, make a slideshow out of the images.
+2. Does where you load the CSS matter?  Please explain.
+3. Make it possible to allow a user to "Like" or "Thumbs-up" an image in the slideshow?  This does not require integrating with any third-party services like Facebook and does not need to be saved into a database.
 
 ## Phase IV
 
 Observer employs lots of experiments to measure how users interact with page elements.
 
-1. Conceive of an experiment that you would like to run on this page.  You should conceive of only 1 test.
+Conceive of an experiment that you would like to run on this page.  You should conceive of only 1 test.
 
 Using Javascript, demonstrate the ability to do the following:
 
-2. On page load, randomly decide what test group a user will be assigned to -- Control group or the Variation group.  Then, based on this value, render the page appropriately for the test.
+1. On page load, randomly decide what test group a user will be assigned to -- Users should be assigned to a "Control" group or the "Variation" group.
+2. Based on this value, render the page appropriately for the test.
 
 # Conclusion
 
