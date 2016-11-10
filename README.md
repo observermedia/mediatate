@@ -39,6 +39,14 @@ Using Javascript, demonstrate the ability to do the following:
 1. On page load, randomly decide what test group a user will be assigned to -- Users should be assigned to a "Control" group or the "Variation" group.
 2. Based on this value, render the page appropriately for the test.
 
+## Phase V
+
+Please notice there's as from near the bottom of the page where users are invited to enter an email address and submit it.  In other words, users are being asked to sign up for something!)
+
+1. Use Javascript to validate that a user types in an email address
+2. Use Javascript to prevent users from submitting their email address more than once
+3. Use Javascript to display feedback to the user (ie: Thanks for signing up!).  Once a user has signed up, consider hiding the form so that users don't sign up again.
+
 # Conclusion
 
 Once you've completed the Phases, please push to your repository.  Add a file answers.txt that provides the written responses to any questions above.
