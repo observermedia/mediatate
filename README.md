@@ -41,7 +41,7 @@ Using Javascript, demonstrate the ability to do the following:
 
 ## Phase V
 
-Please notice there's as from near the bottom of the page where users are invited to enter an email address and submit it.  In other words, users are being asked to sign up for something!)
+Please notice there's a form near the bottom of the page where users are invited to enter an email address and submit it.  In other words, users are being asked to sign up for something!)
 
 1. Use Javascript to validate that a user types in an email address
 2. Use Javascript to prevent users from submitting their email address more than once
