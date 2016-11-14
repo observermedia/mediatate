@@ -4,7 +4,7 @@ A repository for hosting coding challenges.
 
 ## Phase I
 
-Please fork our repository to your personal Github account.
+Please clone this repository to your personal Github account.
 
 ## Phase II
 
