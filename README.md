@@ -14,6 +14,7 @@ There are two images that are identical, though they are identified to the DOM w
 2. What are the implications for how these images load?
 3. What can be done to make these images load correctly with a version number?
 
+
 ## Phase II
 
 This page makes a good candidate for using the Bootstrap framework.  Please do the following:

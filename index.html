@@ -30,28 +30,21 @@
 </style>
 </head>
 <body>
-
     <script>
         sleep(7000);
         //alert("hoho");
-    </script>
-    <script language="javascript" type="text/javascript">
-        var d = new Date();
-        document.getElementById("image-2").src =
-          "https://s-media-cache-ak0.pinimg.com/736x/4b/fe/44/4bfe443c1db09c0943de27164783e4fc.jpg?ver=" +
-           d.getTime();
     </script>
     <div class="header">
         Header Bar
     </div>
     <div>
-        <img id="image-1" src="https://s-media-cache-ak0.pinimg.com/736x/4b/fe/44/4bfe443c1db09c0943de27164783e4fc.jpg">
+        <img class= "image" id="image-1" src="https://s-media-cache-ak0.pinimg.com/736x/4b/fe/44/4bfe443c1db09c0943de27164783e4fc.jpg">
     </div>
     <div id="image-1-caption">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ullamcorper ante. Quisque sit amet mauris facilisis, placerat nisl finibus, euismod felis. </p>
     </div>
     <div>
-        <img id="image-2" src="https://s-media-cache-ak0.pinimg.com/736x/4b/fe/44/4bfe443c1db09c0943de27164783e4fc.jpg">
+        <img class= "image" id="image-2" src="https://s-media-cache-ak0.pinimg.com/736x/4b/fe/44/4bfe443c1db09c0943de27164783e4fc.jpg">
     </div>
     <div id="image-2-caption">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -85,11 +78,14 @@
         </ul>
     </div>
     <script language="javascript" type="text/javascript">
-        var d = new Date();
-        document.getElementById("image-1").src =
-          "https://s-media-cache-ak0.pinimg.com/736x/4b/fe/44/4bfe443c1db09c0943de27164783e4fc.jpg?ver=" +
-           d.getTime();
-    </script>
 
+        let images = Array.from(document.querySelectorAll('.image'));
+        let d = new Date();
+
+        images.forEach((image, index) => {
+            image.src = `${image.src}?ver=${d.getTime() + index}`;
+        });
+
+    </script>
 </body>
 </html>
