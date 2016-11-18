@@ -23,59 +23,194 @@
     }
 </script>
 <style media="screen" type="text/css">
-.header {
-    background-color: #f0f0f0;
-    text-align: center;
-}
+  .header {
+      background-color: #f0f0f0;
+      text-align: center;
+  }
+  /*input#slide-1:checked ~ #slide-1,
+  input#slide-2:checked ~ #slide-2 {
+    display: block;
+  }
+  .slide {
+    display:none
+  }*/
 </style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
+<style type="text/css">
 
+</style>
     <script>
         sleep(7000);
         //alert("hoho");
     </script>
-    <script language="javascript" type="text/javascript">
-        var d = new Date();
-        document.getElementById("image-2").src =
-          "https://s-media-cache-ak0.pinimg.com/736x/4b/fe/44/4bfe443c1db09c0943de27164783e4fc.jpg?ver=" +
-           d.getTime();
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
     </script>
     <div class="header">
         Header Bar
     </div>
-    <div>
-        <img id="image-1" src="https://s-media-cache-ak0.pinimg.com/736x/4b/fe/44/4bfe443c1db09c0943de27164783e4fc.jpg">
+
+    <div class="slideshow" style="text-align:center">
+        <input type="radio" id="slide-1" style="display:none">
+        <input type="radio" id="slide-2" style="display:none">
+        <div id="slide-1" class="slide">
+            <img id="image-1" src="https://s-media-cache-ak0.pinimg.com/736x/4b/fe/44/4bfe443c1db09c0943de27164783e4fc.jpg">
+            <div id="image-1-caption" class="slide-caption">
+                <p>#1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ullamcorper ante. Quisque sit amet mauris facilisis, placerat nisl finibus, euismod felis. </p>
+            </div>
+            <span class="glyphicon heart-like glyphicon-heart-empty" title="Like" aria-hidden="true" style="font-size:2em;position:absolute;left:210px;top:440px;cursor:pointer;color:rgb(0, 0 ,0)"></span>
+        </div>
+        <script language="javascript" type="text/javascript">
+            var d = new Date();
+            document.getElementById("image-1").src =
+              "https://s-media-cache-ak0.pinimg.com/736x/4b/fe/44/4bfe443c1db09c0943de27164783e4fc.jpg?ver=" +
+               d.getTime();
+        </script>
+        <div id="slide-2" class="slide">
+            <img id="image-2" src="https://s-media-cache-ak0.pinimg.com/736x/4b/fe/44/4bfe443c1db09c0943de27164783e4fc.jpg">
+            <div id="image-2-caption" class="slide-caption">
+                <p>#2 Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <span class="glyphicon heart-like glyphicon-heart-empty" title="Like" aria-hidden="true" style="font-size:2em;position:absolute;left:210px;top:440px;cursor:pointer;color:rgb(0, 0, 0)"></span>
+            </div>
+        </div>
+        <script language="javascript" type="text/javascript">
+            var d = new Date();
+            document.getElementById("image-2").src = "https://s-media-cache-ak0.pinimg.com/736x/4b/fe/44/4bfe443c1db09c0943de27164783e4fc.jpg?ver=" +
+             d.getTime();
+        </script>
+        <script language="javascript" type="text/javascript">
+            $('span.heart-like').on("click", function(){
+              if (this.className.includes("glyphicon-heart-empty")){
+                this.className = this.className.replace("glyphicon-heart-empty", "glyphicon-heart");
+                this.style.color = this.style.color.replace("rgb(0, 0, 0)", "rgb(216, 39, 28)")
+                this.title = this.title.replace("Like", "Liked")
+              }
+            else {
+              this.className = this.className.replace("glyphicon-heart", "glyphicon-heart-empty");
+              this.style.color = this.style.color.replace("rgb(216, 39, 28)", "rgb(0, 0, 0)")
+              this.title = this.title.replace("Liked", "Like")
+            }
+            })
+        </script>
     </div>
-    <div id="image-1-caption">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ullamcorper ante. Quisque sit amet mauris facilisis, placerat nisl finibus, euismod felis. </p>
+    <br>
+    <div class="selector" style="text-align:center">
+      <label style="position:absolute;left:490px;top:440px;cursor:pointer;height:15px;width:15px;margin:0 2px;background-color:rgb(187, 187, 187);border-radius: 50%;display:inline-block" for="slide-1" class="inputField" id="slide-1" onclick="showSlides(1)"></label>
+      <label style="position:absolute;left:530px;top:440px;cursor:pointer;height:15px;width:15px;margin:0 2px;background-color:rgb(187, 187, 187);border-radius: 50%;display:inline-block;" for="slide-2" class="inputField" id="slide-1" onclick="showSlides(2)"> </label>
     </div>
-    <div>
-        <img id="image-2" src="https://s-media-cache-ak0.pinimg.com/736x/4b/fe/44/4bfe443c1db09c0943de27164783e4fc.jpg">
+    <script language="javascript" type="text/javascript">
+      var slideIndex = 0;
+      var timeouts = []
+      showSlides();
+
+      function showSlides(slideNum = null) {
+          var i;
+          var slides = document.getElementsByClassName("slide");
+          var inputs = document.getElementsByClassName("inputField");
+
+          for (i = 0; i < slides.length && i < inputs.length; i++) {
+              slides[i].style.display = "none";
+              inputs[i].style.cssText = inputs[i].style.cssText.replace("rgb(75, 75, 75)", "rgb(187, 187, 187)");
+          }
+            slideIndex++;
+          if (slideNum != null) {
+            slideIndex = slideNum
+            for (var i=0; i<timeouts.length; i++) {
+              clearTimeout(timeouts[i]);
+            }
+          }
+          else if (slideIndex> slides.length) {
+            slideIndex = 1
+          }
+          slides[slideIndex-1].style.display = "block";
+          inputs[slideIndex-1].style.cssText = inputs[slideIndex-1].style.cssText.replace("rgb(187, 187, 187)", "rgb(75, 75, 75)");
+
+          timeouts.push(setTimeout(showSlides, 4000));
+      }
+
+    </script>
+
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+          <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ullamcorper ante. Quisque sit amet mauris facilisis, placerat nisl finibus, euismod felis. Fusce tristique felis augue, quis ultricies augue iaculis vel. Ut volutpat orci a mauris rutrum consectetur. Curabitur consequat, dui sed tincidunt scelerisque, augue tortor vehicula turpis, porttitor viverra nulla arcu gravida magna. In auctor, ex quis rutrum iaculis, velit urna gravida ante, nec tristique mi mi eget ex. Ut eu nisl in augue dapibus consequat. Aenean faucibus blandit metus et volutpat. Sed nec dolor auctor, venenatis velit id, rhoncus ipsum. Proin congue, magna a viverra maximus, felis nisl efficitur ipsum, sit amet bibendum mauris mi sed diam.
+          </p>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ullamcorper ante. Quisque sit amet mauris facilisis, placerat nisl finibus, euismod felis. Fusce tristique felis augue, quis ultricies augue iaculis vel. Ut volutpat orci a mauris rutrum consectetur. Curabitur consequat, dui sed tincidunt scelerisque, augue tortor vehicula turpis, porttitor viverra nulla arcu gravida magna. In auctor, ex quis rutrum iaculis, velit urna gravida ante, nec tristique mi mi eget ex. Ut eu nisl in augue dapibus consequat. Aenean faucibus blandit metus et volutpat. Sed nec dolor auctor, venenatis velit id, rhoncus ipsum. Proin congue, magna a viverra maximus, felis nisl efficitur ipsum, sit amet bibendum mauris mi sed diam.
+          </p>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ullamcorper ante. Quisque sit amet mauris facilisis, placerat nisl finibus, euismod felis. Fusce tristique felis augue, quis ultricies augue iaculis vel. Ut volutpat orci a mauris rutrum consectetur. Curabitur consequat, dui sed tincidunt scelerisque, augue tortor vehicula turpis, porttitor viverra nulla arcu gravida magna.
+          </p>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ullamcorper ante. Quisque sit amet mauris facilisis, placerat nisl finibus, euismod felis. Fusce tristique felis augue, quis ultricies augue iaculis vel. Ut volutpat orci a mauris rutrum consectetur. Curabitur consequat, dui sed tincidunt scelerisque, augue tortor vehicula turpis, porttitor viverra nulla arcu gravida magna. In auctor, ex quis rutrum iaculis, velit urna gravida ante, nec tristique mi mi eget ex. Ut eu nisl in augue dapibus consequat. Aenean faucibus blandit metus et volutpat. Sed nec dolor auctor, venenatis velit id, rhoncus ipsum. Proin congue, magna a viverra maximus, felis nisl efficitur ipsum, sit amet bibendum mauris mi sed diam.
+          </p>
+        </div>
+  </div>
+  <div class="row" id='youtube-wrapper' style="display:none">
+    <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" id="youtube-vid" src="https://www.youtube.com/v/rnj6cnlIjM4">
+        </iframe>
+        <script>
+        var vidCounter = 0
+        focus();
+        var listener = addEventListener('blur', function() {
+	         if(document.activeElement === document.getElementById('youtube-vid')) {
+		           vidCounter += 1
+	            }
+        });
+        </script>
+      </div>
     </div>
-    <div id="image-2-caption">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ullamcorper ante. Quisque sit amet mauris facilisis, placerat nisl finibus, euismod felis. Fusce tristique felis augue, quis ultricies augue iaculis vel. Ut volutpat orci a mauris rutrum consectetur. Curabitur consequat, dui sed tincidunt scelerisque, augue tortor vehicula turpis, porttitor viverra nulla arcu gravida magna. In auctor, ex quis rutrum iaculis, velit urna gravida ante, nec tristique mi mi eget ex. Ut eu nisl in augue dapibus consequat. Aenean faucibus blandit metus et volutpat. Sed nec dolor auctor, venenatis velit id, rhoncus ipsum. Proin congue, magna a viverra maximus, felis nisl efficitur ipsum, sit amet bibendum mauris mi sed diam.
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ullamcorper ante. Quisque sit amet mauris facilisis, placerat nisl finibus, euismod felis. Fusce tristique felis augue, quis ultricies augue iaculis vel. Ut volutpat orci a mauris rutrum consectetur. Curabitur consequat, dui sed tincidunt scelerisque, augue tortor vehicula turpis, porttitor viverra nulla arcu gravida magna.
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ullamcorper ante. Quisque sit amet mauris facilisis, placerat nisl finibus, euismod felis. Fusce tristique felis augue, quis ultricies augue iaculis vel. Ut volutpat orci a mauris rutrum consectetur. Curabitur consequat, dui sed tincidunt scelerisque, augue tortor vehicula turpis, porttitor viverra nulla arcu gravida magna. In auctor, ex quis rutrum iaculis, velit urna gravida ante, nec tristique mi mi eget ex. Ut eu nisl in augue dapibus consequat. Aenean faucibus blandit metus et volutpat. Sed nec dolor auctor, venenatis velit id, rhoncus ipsum. Proin congue, magna a viverra maximus, felis nisl efficitur ipsum, sit amet bibendum mauris mi sed diam.
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ullamcorper ante. Quisque sit amet mauris facilisis, placerat nisl finibus, euismod felis. Fusce tristique felis augue, quis ultricies augue iaculis vel. Ut volutpat orci a mauris rutrum consectetur. Curabitur consequat, dui sed tincidunt scelerisque, augue tortor vehicula turpis, porttitor viverra nulla arcu gravida magna.
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ullamcorper ante. Quisque sit amet mauris facilisis, placerat nisl finibus, euismod felis. Fusce tristique felis augue, quis ultricies augue iaculis vel. Ut volutpat orci a mauris rutrum consectetur. Curabitur consequat, dui sed tincidunt scelerisque, augue tortor vehicula turpis, porttitor viverra nulla arcu gravida magna. In auctor, ex quis rutrum iaculis, velit urna gravida ante, nec tristique mi mi eget ex. Ut eu nisl in augue dapibus consequat. Aenean faucibus blandit metus et volutpat. Sed nec dolor auctor, venenatis velit id, rhoncus ipsum. Proin congue, magna a viverra maximus, felis nisl efficitur ipsum, sit amet bibendum mauris mi sed diam.
-    </p>
-    <form>
-    <input name="email" type="text">
-    <input type="submit">
+  </div>
+  <script>
+    randomUser()
+    function randomUser(){
+      var userType = ["control", "variation", "control", "variation", "control", "variation", "control", "variation", "control", "variation", "control", "variation", "control", "variation", "control", "variation", "control", "variation"]
+      userType.sort(function(){
+        return 0.5 - Math.random()
+      })
+      if (userType[0] === "variation"){
+        var youtubeVid = document.getElementById('youtube-wrapper')
+        youtubeVid.style.display = youtubeVid.style.display.replace("none", "block")
+      }
+    }
+
+  </script>
+
+    <form action="#" onsubmit="return validateFormOnSubmit(this)" style="display:block">
+      <input name="email" type="text">
+      <input type="submit">
     </form>
-    <div id="footer">
+
+    <script>
+    var emails = []
+    function validateFormOnSubmit(params){
+      //debugger
+      if (params.email.value.match(/[A-z]+@{1}.+\S/) != null && jQuery.inArray(params.email.value, emails) === -1)
+      {
+        //debugger
+        emails.push(params.email.value)
+        params.style.display = params.style.display.replace("block", "none")
+        $("#footer").prepend("<p>Thank you! Your email address has been submitted.</p>")
+      }
+    else if (params.email.value.match(/[A-z]+@{1}.+\S/) != null && jQuery.inArray(params.email.value, emails) != -1){
+      alert("You've already submitted your email address.")
+    }
+    else {
+      //debugger
+       alert("This is not the correct format for an email address. Please try again.")
+    }
+    }
+    </script>
+     <div id="footer">
         <span>CompanyName</span>
         <ul>
             <li><a href="">Lorem</a></li>
@@ -84,12 +219,5 @@
             <li><a href="">Magna</a></li>
         </ul>
     </div>
-    <script language="javascript" type="text/javascript">
-        var d = new Date();
-        document.getElementById("image-1").src =
-          "https://s-media-cache-ak0.pinimg.com/736x/4b/fe/44/4bfe443c1db09c0943de27164783e4fc.jpg?ver=" +
-           d.getTime();
-    </script>
-
 </body>
 </html>

@@ -1,0 +1,9 @@
+Phase II
+
+1. Each of the images is two separate instances that the image will load on the page.
+2. They will load at separate times. One must load before the other.
+3. The script files need to be moved to after the their divs that contain their corresponding image. The computer will read the Javascript from top to bottom. You can't use a script to edit an attribute (version url) about an element if the element isn't even defined yet in the DOM.
+
+Phase III
+
+2. It doesn't matter in terms of load time, but if a developer is writing the same lines of CSS over and over, he or she is spending time on something unnecessary, and it should be delegated to a separate file in a single object. It also lightens the text on the HTML page and makes it easier for someone else to read it. Having the separate CSS page distinguishes code that contains content versus code that informs the placement of the content.
