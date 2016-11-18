@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node_modules/babel-cli/bin/babel-node.js app.js",
     "build-css": "./bin/build-css",
-    "watch-css": "./bin/watch-css"
+    "watch-css": "./bin/watch-css",
+    "build": "babel src -d lib"
   },
   "repository": {
     "type": "git",
@@ -24,8 +25,20 @@
     "body-parser": "^1.15.2",
     "css-loader": "^0.25.0",
     "express": "^4.14.0",
-    "nodemon": "^1.11.0",
     "node-sass": "^3.11.2",
-    "webpack": "^1.13.3"
+    "nodemon": "^1.11.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify": "0.0.14",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-uglifycss": "^1.0.6",
+    "gulp-util": "^3.0.7"
   }
 }

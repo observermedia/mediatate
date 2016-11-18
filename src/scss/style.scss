@@ -13,6 +13,7 @@ $paragraph-font-size: 13px;
 // ----------------------------------------------
 $blue-color:  #69BFFF;
 $dark-blue-color: #447FAB;
+$light-gray-color: #8B928E;
 
 body {
     font-family: $oxygen-font;
@@ -60,7 +61,7 @@ h3.headline {
 .caption p {
     text-align: left;
     font-style: italic;
-    color: gray;
+    color: $light-gray-color;
     padding: 10px 0 20px 0;
 }
 
