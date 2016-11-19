@@ -5,7 +5,6 @@
 
 // TYPOGRAPHY
 // ----------------------------------------------
-$hind-font: 'Hind', sans-serif;
 $oxygen-font: 'Oxygen', sans-serif;
 $paragraph-font-size: 13px;
 
@@ -14,6 +13,13 @@ $paragraph-font-size: 13px;
 $blue-color:  #69BFFF;
 $dark-blue-color: #447FAB;
 $light-gray-color: #8B928E;
+
+// DEVICE SIZES
+// ----------------------------------------------
+$standard-desktop: 1024px;
+$tablet: 700px;
+$phone: 350px;
+
 
 body {
     font-family: $oxygen-font;
@@ -65,6 +71,36 @@ h3.headline {
     padding: 10px 0 20px 0;
 }
 
+.puppy {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-inner {
+    position: relative;
+}
+
+.like-container {
+    position: absolute;
+    bottom: 45%;
+    right: 45%;
+    z-index: 999999;
+}
+
+img.icon {
+    margin: 0 auto;
+    width: 70px;
+    height: auto;
+    cursor: pointer;
+    @media screen and (max-width: $tablet) {
+    width: 50px;
+  }
+}
+
+.hide {
+   visibility: hidden;
+}
+
 .footer {
     text-align: center;
     margin: 50px auto;
@@ -78,3 +114,6 @@ h3.headline {
         }
     }
 }
+
+
+

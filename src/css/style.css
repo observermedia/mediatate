@@ -40,6 +40,31 @@ h3.headline {
   color: #8B928E;
   padding: 10px 0 20px 0; }
 
+.puppy {
+  width: 100%;
+  height: auto; }
+
+.carousel-inner {
+  position: relative; }
+
+.like-container {
+  position: absolute;
+  bottom: 45%;
+  right: 45%;
+  z-index: 999999; }
+
+img.icon {
+  margin: 0 auto;
+  width: 70px;
+  height: auto;
+  cursor: pointer; }
+  @media screen and (max-width: 700px) {
+    img.icon {
+      width: 50px; } }
+
+.hide {
+  visibility: hidden; }
+
 .footer {
   text-align: center;
   margin: 50px auto; }
