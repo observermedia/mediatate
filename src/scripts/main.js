@@ -1,45 +1,53 @@
-// Assign version numbers to images
-
-let images = Array.from(document.querySelectorAll('.image'));
-let d = new Date();
-
-images.forEach((image, index) => {
-  image.src = `${image.src}?ver=${d.getTime()}${index}`;
-});
-
-
-// "Liking" images in the slideshow
-
-let slides = document.getElementById('image-slideshow');
-let likeButton = document.getElementById('unliked');
-let redButton = document.getElementById('liked');
-let isLiked = false;
-
-let showLikeButton = () => {
-  likeButton.classList.remove('hide');
+window.onload = () => {
+  experiment();
+  imageVersions();
+  slideshowLikes();
 };
 
-let hideBothButtons = () => {
-  likeButton.classList.add('hide');
-  redButton.classList.add('hide');
+const imageVersions = () => {
+  let images = Array.from(document.querySelectorAll('.image'));
+  let d = new Date();
+  images.forEach((image, index) => {
+    image.src = `${image.src}?ver=${d.getTime()}${index}`;
+  })
 };
 
-let toggleRedButton = () => {
-  likeButton.classList.add('hide');
-  redButton.classList.remove('hide');
+const slideshowLikes = () => {
+  let slides = document.getElementById('image-slideshow');
+  let likeButton = document.getElementById('unliked');
+  let redButton = document.getElementById('liked');
+
+  const showLikeButton = () => likeButton.classList.remove('hide');
+
+  const hideBothButtons = () => {
+    likeButton.classList.add('hide');
+    redButton.classList.add('hide');
+  };
+
+  const toggleRedButton = () => {
+    likeButton.classList.add('hide');
+    redButton.classList.remove('hide');
+  };
+
+  redButton.addEventListener('click', () => likeButton.classList.add('hide'));
+  likeButton.addEventListener('click', toggleRedButton);
+  slides.addEventListener('mouseenter', showLikeButton);
+  slides.addEventListener('mouseleave', hideBothButtons);
 };
 
-redButton.addEventListener('click', () => {
- likeButton.classList.add('hide');
-});
 
-slides.addEventListener('mouseenter', showLikeButton);
-slides.addEventListener('mouseleave', hideBothButtons);
-likeButton.addEventListener('click', toggleRedButton);
+const experiment = () => {
+  let groups = ['control', 'variation'];
+  let userGroup = groups[Math.floor(Math.random() * groups.length)];
+  let button = document.getElementById('submit-btn');
 
+  // Let's say we typically make our buttons green, and we want to do some A/B testing to see if a different color encourages more clicks (and more email signups). The control group will get green as usual, and the variation group will get a red button.
 
+  if (userGroup === 'variation') {
+    button.style.background = '#BF0012';
+  } else {
+    button.style.background = '#50A13E';
+  };
+};
 
-// on a hover, show the plain button
-// when not hovering, hide the plain button
-// if they click the button, the plain one needs to disappear and the red one needs to appear
 

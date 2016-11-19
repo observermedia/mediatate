@@ -1,11 +1,12 @@
 // GOOGLE FONTS
 // ----------------------------------------------
 
-@import url('https://fonts.googleapis.com/css?family=Oxygen');
+@import url('https://fonts.googleapis.com/css?family=Oxygen|Oswald');
 
 // TYPOGRAPHY
 // ----------------------------------------------
 $oxygen-font: 'Oxygen', sans-serif;
+$oswald-font: 'Oswald', sans-serif;
 $paragraph-font-size: 13px;
 
 // BRAND COLORS
@@ -41,16 +42,23 @@ a {
 }
 
 .header {
-    background-color: $blue-color;
     text-align: center;
     width: 100%;
-    height: 80px;
-    p {
-    text-transform: uppercase;
-    color: #FFF;
-    margin: auto auto;
-    line-height: 80px;
-    }     
+    height: 150px;
+    h2 {
+        font-family: $oswald-font;
+        text-transform: uppercase;
+        font-size: 40px;
+        color: black;
+        margin: auto auto;
+        line-height: 150px;
+        @media screen and (max-width: $tablet) {
+            font-size: 30px;
+        }
+         @media screen and (max-width: $phone) {
+            font-size: 20px;
+        }
+    }   
 }
 
 .image {
@@ -99,6 +107,33 @@ img.icon {
 
 .hide {
    visibility: hidden;
+}
+
+p.call-to-action {
+    text-align: center;
+    font-style: bold;
+    margin: 50px auto 0 auto;
+}
+
+#email-form {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+input {
+    width: 250px;
+    padding: 5px;
+    margin: 0 5px;
+    border: .5px solid $light-gray-color;
+    border-radius: 5px ;
+}
+
+#submit-btn {
+    color: #FFF;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
 }
 
 .footer {
