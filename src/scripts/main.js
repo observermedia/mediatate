@@ -64,10 +64,13 @@ const submitForm = () => {
     emailList.push(newEmail);
     $message.html('<p class="thank-you">Thanks for signing up!</p>');
   };
-
+  // this resets the form contents
   $('#email-form').each(function() {
     this.reset();
   });
+  // if you wanted to hide the form, you could do this:
+  // $('#email-form').hide();
+  // $('.call-to-action').hide();
 };
 
 
